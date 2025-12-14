@@ -27,7 +27,7 @@ class ReservationResourceTest {
   }
 
   @Test
-  void movie_not_screening_results_in_500() {
+  void movie_not_screening_results_in_400() {
     var request =
         new ReservationRequest(
             "Donald Duck", "D3", TicketTypeRequest.TOP, 2L, Instant.parse("2025-01-01T12:00:00Z"));
@@ -37,7 +37,7 @@ class ReservationResourceTest {
         .when()
         .post("/api/v1/reservations")
         .then()
-        .statusCode(500);
+        .statusCode(400);
   }
 
   @Test
