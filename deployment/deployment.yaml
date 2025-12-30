@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rescin-ticket-reservation-deployment
+spec:
+  template:
+    metadata:
+      name: rescin-ticket-reservation
+      labels:
+        app: rescin-ticket-reservation
+    spec:
+      containers:
+        - name: rescin-ticket-reservation
+          image: rescin/ticket-reservation:v0.0.2
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+          env:
+            - name: POD_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+  replicas: 3
+  selector:
+     matchLabels:
+       app: rescin-ticket-reservation
+
