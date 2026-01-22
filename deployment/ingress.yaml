@@ -1,0 +1,15 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: rescin-ticket-reservation-ingress
+spec:
+  rules:
+    - http:
+        paths:
+          - pathType: Prefix
+            path: /
+            backend:
+              service:
+                name: rescin-ticket-reservation-service
+                port:
+                  number: 8080

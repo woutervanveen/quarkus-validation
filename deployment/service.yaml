@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: rescin-ticket-reservation-service
+spec:
+  selector:
+    app: rescin-ticket-reservation
+  ports:
+    - port: 8080
