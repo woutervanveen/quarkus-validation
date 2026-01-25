@@ -6,4 +6,4 @@ spec:
   selector:
     app: rescin-ticket-reservation
   ports:
-    - port: 8080
+    - port: {{ .Values.port }}
