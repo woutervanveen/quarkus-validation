@@ -2,7 +2,7 @@ import requests
 
 
 def main() -> None:
-    url = "http://192.168.49.2/pod-info"
+    url = "http://192.168.67.2/pod-info"
     data = {}
     for i in range(1, 100):
         response = requests.get(url).content.decode("utf-8")

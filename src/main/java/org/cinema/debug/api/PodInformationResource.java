@@ -18,6 +18,6 @@ public class PodInformationResource {
   @GET
   @Produces(MediaType.TEXT_PLAIN)
   public String getPodInfo() {
-    return "The welocme message is: " + welcomMessage + " and I am running on pod: " + podName;
+    return "The welcome message is: " + welcomMessage + " and I am running on pod: " + podName;
   }
 }
