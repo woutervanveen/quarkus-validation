@@ -1,0 +1,2 @@
+# the profile used to start our quarkus application
+quarkusProfile: acceptance

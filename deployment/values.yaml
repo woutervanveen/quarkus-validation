@@ -1,0 +1,6 @@
+# version of image to pull
+imageVersion: v0.0.2
+# number of replicas to run
+replicas: 1
+# port on which the application can be reached
+port: 8080

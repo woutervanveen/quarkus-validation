@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: rescin-ticket-reservation-deployment
+  namespace: rescin
 spec:
   template:
     metadata:
@@ -11,17 +12,19 @@ spec:
     spec:
       containers:
         - name: rescin-ticket-reservation
-          image: rescin/ticket-reservation:v0.0.2
+          image: rescin/ticket-reservation:{{ .Values.imageVersion }}
           imagePullPolicy: IfNotPresent
           ports:
-            - containerPort: 8080
+            - containerPort: {{ .Values.port }}
           env:
             - name: POD_NAME
               valueFrom:
                 fieldRef:
                   fieldPath: metadata.name
-  replicas: 3
+            - name: QUARKUS_PROFILE
+              value: {{ .Values.quarkusProfile }}
+  replicas: {{ .Values.replicas }}
   selector:
-     matchLabels:
-       app: rescin-ticket-reservation
+    matchLabels:
+      app: rescin-ticket-reservation
 
